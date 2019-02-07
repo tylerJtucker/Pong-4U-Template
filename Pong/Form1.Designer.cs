@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.gameUpdateLoop = new System.Windows.Forms.Timer(this.components);
             this.startLabel = new System.Windows.Forms.Label();
+            this.sml = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gameUpdateLoop
@@ -53,12 +54,27 @@
             this.startLabel.Text = "Press Space To Start";
             this.startLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // sml
+            // 
+            this.sml.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.sml.Font = new System.Drawing.Font("Courier New", 10F);
+            this.sml.ForeColor = System.Drawing.Color.White;
+            this.sml.Location = new System.Drawing.Point(196, 0);
+            this.sml.Name = "sml";
+            this.sml.Size = new System.Drawing.Size(225, 16);
+            this.sml.TabIndex = 1;
+            this.sml.Text = "Press E to Enter Sicko Mode";
+            this.sml.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.SystemColors.ControlText;
             this.ClientSize = new System.Drawing.Size(616, 450);
+            this.Controls.Add(this.sml);
             this.Controls.Add(this.startLabel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -77,6 +93,7 @@
 
         private System.Windows.Forms.Timer gameUpdateLoop;
         private System.Windows.Forms.Label startLabel;
+        private System.Windows.Forms.Label sml;
     }
 }
 

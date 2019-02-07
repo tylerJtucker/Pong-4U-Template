@@ -41,7 +41,7 @@ namespace Pong
         SoundPlayer collisionSound2 = new SoundPlayer(Properties.Resources.Grunt);
 
         //determines whether a key is being pressed or not
-        Boolean aKeyDown, zKeyDown, jKeyDown, mKeyDown;
+        Boolean aKeyDown, zKeyDown, jKeyDown, mKeyDown, eKeyDown;
 
         // check to see if a new game can be started
         Boolean newGameOk = true;
@@ -49,11 +49,11 @@ namespace Pong
         //ball directions, speed, and rectangle
         Boolean ballMoveRight = true;
         Boolean ballMoveDown = true;
-        const int BALL_SPEED = 4;
+        int BALL_SPEED = 4;
         Rectangle ball;
 
         //paddle speeds and rectangles
-        const int PADDLE_SPEED = 4;
+        int PADDLE_SPEED = 4;
         Rectangle p1, p2;
 
         //player and game scores
@@ -85,6 +85,9 @@ namespace Pong
                 case Keys.M:
                     mKeyDown = true;
                     break;
+                case Keys.E:
+                    eKeyDown = true;
+                    break;
                 case Keys.Y:
                 case Keys.Space:
                     if (newGameOk)
@@ -100,7 +103,7 @@ namespace Pong
                     break;
             }
         }
-        
+
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             //check to see if a key has been released and set its KeyDown value to false if it has
@@ -117,6 +120,9 @@ namespace Pong
                     break;
                 case Keys.M:
                     mKeyDown = false;
+                    break;
+                case Keys.E:
+                    eKeyDown = false;
                     break;
             }
         }
@@ -292,6 +298,13 @@ namespace Pong
             }
 
             #endregion
+
+            if (eKeyDown == true)
+            {
+                BALL_SPEED = 12;
+                PADDLE_SPEED = 12;
+                sml.Text = " Sicko Mode Engaged ";
+            }
 
             //refresh the screen, which causes the Form1_Paint method to run
             this.Refresh();
