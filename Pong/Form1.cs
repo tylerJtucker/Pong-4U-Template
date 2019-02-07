@@ -36,8 +36,9 @@ namespace Pong
         Font drawFont = new Font("Courier New", 10);
 
         // Sounds for game
-        SoundPlayer scoreSound = new SoundPlayer(Properties.Resources.score);
+        SoundPlayer scoreSound = new SoundPlayer(Properties.Resources.Bruh);
         SoundPlayer collisionSound = new SoundPlayer(Properties.Resources.collision);
+        SoundPlayer collisionSound2 = new SoundPlayer(Properties.Resources.Grunt);
 
         //determines whether a key is being pressed or not
         Boolean aKeyDown, zKeyDown, jKeyDown, mKeyDown;
@@ -233,13 +234,13 @@ namespace Pong
             if (p1.IntersectsWith(ball))
             {
                 ballMoveRight = true;
-                collisionSound.Play();
+                collisionSound2.Play();
             }
 
             if (p2.IntersectsWith(ball))
             {
                 ballMoveRight = false;
-                collisionSound.Play();
+                collisionSound2.Play();
             }
             /*  ENRICHMENT
              *  Instead of using two if statments as noted above see if you can create one

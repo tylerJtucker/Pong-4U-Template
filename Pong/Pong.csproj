@@ -82,6 +82,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ramlogo.ico" />
+    <None Include="Resources\Bruh_Sound_Effect_2-2ZIpFytCSVc.wav" />
+    <None Include="Resources\human_grunt_sound-AiPJAPznzRc.wav" />
     <None Include="Resources\collision.wav" />
     <None Include="Resources\score.wav" />
     <None Include="Resources\wall bounce.wav" />
