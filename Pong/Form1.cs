@@ -28,6 +28,11 @@ namespace Pong
 
         //graphics objects for drawing
         SolidBrush drawBrush = new SolidBrush(Color.White);
+        SolidBrush drawBrushP1 = new SolidBrush(Color.Red);
+        SolidBrush drawBrushP2 = new SolidBrush(Color.Blue);
+        Pen drawPenP1 = new Pen(Color.Red);
+        Pen drawPenP2 = new Pen(Color.Blue);
+        Pen drawPenBall = new Pen(Color.GhostWhite);
         Font drawFont = new Font("Courier New", 10);
 
         // Sounds for game
@@ -53,7 +58,7 @@ namespace Pong
         //player and game scores
         int player1Score = 0;
         int player2Score = 0;
-        int gameWinScore = 5;  // number of points needed to win game
+        int gameWinScore = 3;  // number of points needed to win game
 
         #endregion
 
@@ -62,7 +67,6 @@ namespace Pong
             InitializeComponent();
         }
 
-        // -- YOU DO NOT NEED TO MAKE CHANGES TO THIS METHOD
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             //check to see if a key is pressed and set is KeyDown value to true if it has
@@ -96,7 +100,6 @@ namespace Pong
             }
         }
         
-        // -- YOU DO NOT NEED TO MAKE CHANGES TO THIS METHOD
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             //check to see if a key has been released and set its KeyDown value to false if it has
@@ -152,7 +155,6 @@ namespace Pong
             ball.X = this.Width / 2 - ball.Width/2;
             ball.Y = this.Height / 2 - ball.Width /2; 
 
-            // TODO set Width and Height of ball
         }
 
         /// <summary>
@@ -162,10 +164,6 @@ namespace Pong
         private void gameUpdateLoop_Tick(object sender, EventArgs e)
         {
             #region update ball position
-
-            // TODO create code to move ball either left or right based on ballMoveRight and using BALL_SPEED
-
-            // TODO create code move ball either down or up based on ballMoveDown and using BALL_SPEED
             if (ballMoveRight == true)
             {
                 ball.X = ball.X + BALL_SPEED;
@@ -315,7 +313,7 @@ namespace Pong
             startLabel.Text = winner + " Takes the Big W ";
             this.Refresh();
             Thread.Sleep(2000);
-            startLabel.Text = "Tryna Play Again?";
+            startLabel.Text = "Tryna Play Again?  Hit Space";
             this.Refresh();
             newGameOk = true;
         }
@@ -323,15 +321,15 @@ namespace Pong
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             //draw paddles using FillRectangle
-            e.Graphics.FillRectangle(drawBrush, p1);
-            e.Graphics.FillRectangle(drawBrush, p2);
+            e.Graphics.DrawRectangle(drawPenP1, p1);
+            e.Graphics.DrawRectangle(drawPenP2, p2);
 
             //draw ball using FillRectangle
-            e.Graphics.FillEllipse(drawBrush, ball);
+            e.Graphics.DrawEllipse(drawPenBall, ball);
 
-            // TODO draw scores to the screen using DrawString
-            e.Graphics.DrawString("Player 1: " + player1Score, drawFont, drawBrush, 15, 15);
-            e.Graphics.DrawString("Player 2: " + player2Score, drawFont, drawBrush, this.Width - 110, 15);
+            //draw scores to the screen using DrawString
+            e.Graphics.DrawString("Player 1: " + player1Score, drawFont, drawBrushP1, 15, 15);
+            e.Graphics.DrawString("Player 2: " + player2Score, drawFont, drawBrushP2, this.Width - 110, 15);
         }
 
     }
