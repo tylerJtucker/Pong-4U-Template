@@ -41,7 +41,7 @@ namespace Pong
         SoundPlayer collisionSound2 = new SoundPlayer(Properties.Resources.Grunt);
 
         //determines whether a key is being pressed or not
-        Boolean aKeyDown, zKeyDown, jKeyDown, mKeyDown, eKeyDown;
+        Boolean aKeyDown, zKeyDown, jKeyDown, mKeyDown, eKeyDown, bKeyDown;
 
         // check to see if a new game can be started
         Boolean newGameOk = true;
@@ -88,6 +88,9 @@ namespace Pong
                 case Keys.E:
                     eKeyDown = true;
                     break;
+                case Keys.B:
+                    bKeyDown = true;
+                    break;
                 case Keys.Y:
                 case Keys.Space:
                     if (newGameOk)
@@ -123,6 +126,9 @@ namespace Pong
                     break;
                 case Keys.E:
                     eKeyDown = false;
+                    break;
+                case Keys.B:
+                    bKeyDown = false;
                     break;
             }
         }
@@ -304,6 +310,10 @@ namespace Pong
                 BALL_SPEED = 12;
                 PADDLE_SPEED = 12;
                 sml.Text = " Sicko Mode Engaged ";
+            }
+            if (bKeyDown == true)
+            {
+                scoreSound.Play();
             }
 
             //refresh the screen, which causes the Form1_Paint method to run
